@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORCE 2026 | Web Agent Generated</title>
+  
+  <!-- 引入 Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- 引入 Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 动态配置 Tailwind 主题 (映射 DSL "theme": "dark-tech") -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              bg: '#05070F',
+              surface: '#0B1020',
+              border: 'rgba(255,255,255,0.1)'
+            },
+            brand: {
+              neon: '#4DA3FF',
+              purple: '#7B61FF',
+              cyan: '#00D1FF'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply bg-dark-bg text-white antialiased overflow-x-hidden selection:bg-brand-neon/30 selection:text-white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+    }
+
+    @layer components {
+      .glass-card {
+        @apply bg-dark-surface/80 backdrop-blur-md border border-dark-border rounded-2xl;
+      }
+      
+      .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-neon via-brand-purple to-brand-cyan;
+      }
+
+      .btn-primary {
+        @apply px-8 py-3 rounded-full font-bold transition-all duration-300
+               bg-brand-neon/10 border border-brand-neon/50 text-brand-neon
+               hover:bg-brand-neon hover:text-dark-bg hover:shadow-[0_0_20px_rgba(77,163,255,0.5)];
+      }
+
+      .fade-up {
+        @apply opacity-0 translate-y-8 transition-all duration-1000 ease-out;
+      }
+      .fade-up.visible {
+        @apply opacity-100 translate-y-0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded bg-gradient-to-br from-brand-neon to-brand-purple flex items-center justify-center font-bold text-white">F</div>
+        <span class="text-2xl font-bold tracking-wider">FORCE</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#hero" class="text-white/80 hover:text-brand-neon transition-colors text-sm font-medium">首页</a>
+        <a href="#split" class="text-white/80 hover:text-brand-neon transition-colors text-sm font-medium">体验</a>
+        <a href="#grid" class="text-white/80 hover:text-brand-neon transition-colors text-sm font-medium">嘉宾</a>
+        <a href="#tabs" class="text-white/80 hover:text-brand-neon transition-colors text-sm font-medium">议程</a>
+      </nav>
+      <button class="btn-primary text-sm px-6 py-2">立即报名</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero (DSL 映射) -->
+    <!-- type: "hero", layout: "center", background: "starry-gradient", components: ["title", "subtitle", "cta"] -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <!-- Background: starry-gradient -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=2093&auto=format&fit=crop')] bg-cover bg-center opacity-30 mix-blend-screen"></div>
+        <div class="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-dark-bg to-transparent z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-purple/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-neon/20 rounded-full blur-[100px] pointer-events-none"></div>
+      </div>
+
+      <!-- Layout: center -->
+      <div class="container mx-auto px-6 relative z-10 text-center flex flex-col items-center fade-up">
+        <div class="inline-block px-4 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6 text-sm text-brand-cyan">
+          12/18 - 12/19 | 上海国家会展中心
+        </div>
+
+        <!-- Component: title -->
+        <h1 class="text-7xl md:text-9xl font-black mb-6 tracking-tighter">
+          FORCE <span class="text-gradient">2026</span>
+        </h1>
+
+        <!-- Component: subtitle -->
+        <p class="text-2xl md:text-3xl text-white/80 font-light mb-12 tracking-wide">
+          算力驱动大会 · 冬
+        </p>
+
+        <!-- Component: cta -->
+        <button class="btn-primary text-lg px-12 py-4 shadow-[0_0_30px_rgba(77,163,255,0.3)] hover:scale-105 mb-12">
+          立即报名
+        </button>
+
+        <!-- Scroll Indicator -->
+        <div class="flex flex-col items-center animate-bounce text-white/50">
+          <span class="text-xs mb-2 uppercase tracking-widest">Scroll</span>
+          <i data-lucide="arrow-down" class="w-6 h-6"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Split (DSL 映射) -->
+    <!-- type: "split", left: "video-card", right: "card-list" -->
+    <section id="split" class="py-32 relative z-10 bg-dark-bg">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-8 fade-up">
+          
+          <!-- Left: video-card -->
+          <div class="glass-card overflow-hidden group relative min-h-[400px] flex items-end p-8 border-brand-neon/30 hover:border-brand-neon transition-colors cursor-pointer">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-neon/20 to-brand-purple/20 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-cyan/30 rounded-full blur-[80px]"></div>
+            
+            <div class="relative z-10 w-full">
+              <button class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <i data-lucide="play" class="w-6 h-6 text-white ml-1 fill-current"></i>
+              </button>
+              <h3 class="text-3xl font-bold mb-4">开启 AI 新体验</h3>
+              <p class="text-white/60 mb-6 max-w-md">探索前沿科技如何重塑行业边界，聆听行业先锋的深度洞见。</p>
+              <button class="text-brand-neon font-bold flex items-center gap-2 group-hover:gap-4 transition-all">立即报名 <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+
+          <!-- Right: card-list -->
+          <div class="flex flex-col gap-6">
+            <div class="glass-card p-6 flex gap-6 items-start group hover:border-brand-neon/50 transition-colors cursor-pointer">
+              <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-neon/10 transition-colors">
+                <i data-lucide="sparkles" class="w-6 h-6 text-brand-neon"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-neon transition-colors">面向大模型的全新系统级架构</h4>
+                <p class="text-white/60 text-sm leading-relaxed">打造极致性能的 AI 底座，重构计算体系</p>
+              </div>
+            </div>
+
+            <div class="glass-card p-6 flex gap-6 items-start group hover:border-brand-purple/50 transition-colors cursor-pointer">
+              <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-purple/10 transition-colors">
+                <i data-lucide="cpu" class="w-6 h-6 text-brand-purple"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-purple transition-colors">Agent 行业应用新范式探索</h4>
+                <p class="text-white/60 text-sm leading-relaxed">智能体如何赋能企业级场景</p>
+              </div>
+            </div>
+
+            <div class="glass-card p-6 flex gap-6 items-start group hover:border-brand-cyan/50 transition-colors cursor-pointer">
+              <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-cyan/10 transition-colors">
+                <i data-lucide="globe" class="w-6 h-6 text-brand-cyan"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold mb-2 group-hover:text-brand-cyan transition-colors">云原生与前沿技术洞察</h4>
+                <p class="text-white/60 text-sm leading-relaxed">全球顶尖技术专家分享实战经验</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Grid (DSL 映射) -->
+    <!-- type: "grid", columns: 4, component: "speaker-card" -->
+    <section id="grid" class="py-24 relative z-10 bg-dark-bg">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            重磅嘉宾 <span class="text-gradient">行业领袖</span>
+          </h2>
+        </div>
+
+        <!-- columns: 4 -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="speaker-grid">
+          <!-- JS 将注入 component: "speaker-card" -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Tabs + Timeline (DSL 映射) -->
+    <!-- type: "tabs + timeline", interaction: "switch" -->
+    <section id="tabs" class="py-24 relative z-10 bg-dark-bg/50 backdrop-blur-3xl border-t border-white/5">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-up">
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            精彩议程 <span class="text-gradient">不容错过</span>
+          </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 max-w-5xl mx-auto fade-up">
+          <!-- Tabs -->
+          <div class="w-full lg:w-1/4">
+            <div class="glass-card p-6 flex flex-row lg:flex-col gap-4 sticky top-24">
+              <!-- interaction: "switch" (通过 onclick) -->
+              <button onclick="switchTab('12/18')" id="tab-12-18" class="bg-brand-neon/10 text-brand-neon border-brand-neon/50 border text-left px-6 py-4 rounded-xl transition-all duration-300 font-bold text-2xl relative overflow-hidden group">
+                <span class="relative z-10">12/18</span>
+              </button>
+              <button onclick="switchTab('12/19')" id="tab-12-19" class="bg-white/5 text-white/50 border-transparent border hover:bg-white/10 hover:text-white text-left px-6 py-4 rounded-xl transition-all duration-300 font-bold text-2xl relative overflow-hidden group">
+                <span class="relative z-10">12/19</span>
+              </button>
+              <button class="mt-8 btn-primary text-sm py-3 hidden lg:block w-full border border-brand-neon">下载议程</button>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="w-full lg:w-3/4">
+            <div class="glass-card p-8 min-h-[400px]">
+              <h3 class="text-xl font-bold mb-8 border-b border-white/10 pb-4 text-brand-cyan" id="agenda-title">12/18 精彩内容</h3>
+              
+              <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-brand-purple/50 before:to-transparent">
+                <!-- 12/18 容器 -->
+                <div id="agenda-12-18" class="space-y-8 animate-fade-in"></div>
+                <!-- 12/19 容器 -->
+                <div id="agenda-12-19" class="space-y-8 hidden animate-fade-in"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark-bg border-t border-white/10 py-10 text-center relative z-10">
+     <p class="text-white/40 text-sm">© 2026 FORCE Conference. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts: 负责动态渲染和交互 -->
+  <script>
+    lucide.createIcons();
+
+    // 滚动头部特效
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-dark-bg/90', 'backdrop-blur-md', 'border-b', 'border-dark-border', 'py-4');
+        header.classList.remove('bg-transparent', 'py-6');
+      } else {
+        header.classList.remove('bg-dark-bg/90', 'backdrop-blur-md', 'border-b', 'border-dark-border', 'py-4');
+        header.classList.add('bg-transparent', 'py-6');
+      }
+    });
+
+    // 动态生成 component: "speaker-card"
+    const speakers = [
+      { name: "李开复", title: "创新工场董事长", avatar: "https://i.pravatar.cc/300?img=11" },
+      { name: "王坚", title: "零一万物 CEO", avatar: "https://i.pravatar.cc/300?img=12" },
+      { name: "张钹", title: "阿里云创始人", avatar: "https://i.pravatar.cc/300?img=13" },
+      { name: "周明", title: "清华大学教授", avatar: "https://i.pravatar.cc/300?img=14" },
+      { name: "陈云霁", title: "智源研究院", avatar: "https://i.pravatar.cc/300?img=15" },
+      { name: "漆远", title: "复旦大学教授", avatar: "https://i.pravatar.cc/300?img=16" },
+      { name: "黄铁军", title: "北京大学教授", avatar: "https://i.pravatar.cc/300?img=17" },
+      { name: "张鹏", title: "百川智能 CEO", avatar: "https://i.pravatar.cc/300?img=18" }
+    ];
+    
+    const speakerGrid = document.getElementById('speaker-grid');
+    speakers.forEach((s, idx) => {
+      speakerGrid.innerHTML += `
+        <div class="glass-card group overflow-hidden cursor-pointer border border-white/5 hover:border-brand-purple/50 transition-all duration-300 transform hover:-translate-y-2 fade-up" style="transition-delay: ${idx * 50}ms">
+          <div class="relative h-64 w-full overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-surface to-transparent z-10 opacity-80 group-hover:opacity-30 transition-opacity"></div>
+            <img src="${s.avatar}" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110" />
+            <div class="absolute bottom-0 left-0 w-full p-4 z-20 translate-y-2 group-hover:translate-y-0 transition-transform">
+              <h4 class="text-xl font-bold text-white mb-1">${s.name}</h4>
+              <p class="text-brand-neon text-sm font-medium">${s.title}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    // 动态生成 Timeline 数据
+    const scheduleData = {
+      '12/18': [
+        { time: '09:00', title: '大模型时代的算力重构', speaker: '李开复', tag: '主论坛' },
+        { time: '10:15', title: 'AI 基础设施架构演进', speaker: '王坚', tag: '基础设施' },
+        { time: '13:30', title: '共建开源大模型生态', speaker: '张钹', tag: '开源' }
+      ],
+      '12/19': [
+        { time: '09:30', title: '微服务架构在 AI 中的应用', speaker: '周明', tag: '云原生' },
+        { time: '11:00', title: '隐私计算与合规挑战', speaker: '陈云霁', tag: '安全' }
+      ]
+    };
+
+    function renderAgenda(date, containerId) {
+      document.getElementById(containerId).innerHTML = scheduleData[date].map((item) => `
+        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+          <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-dark-surface bg-brand-neon shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <div class="w-2 h-2 rounded-full bg-white"></div>
+          </div>
+          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-6 border border-white/5 hover:border-brand-neon/50 transition-colors">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-sm font-mono text-brand-cyan">${item.time}</span>
+              <span class="px-2 py-0.5 text-xs rounded bg-white/10 text-white/70">${item.tag}</span>
+            </div>
+            <h4 class="text-lg font-bold mb-2 group-hover:text-brand-neon transition-colors">${item.title}</h4>
+            <p class="text-sm text-white/60">${item.speaker}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    renderAgenda('12/18', 'agenda-12-18');
+    renderAgenda('12/19', 'agenda-12-19');
+
+    // Tabs Switch 交互
+    window.switchTab = function(date) {
+      document.getElementById('agenda-title').innerText = `${date} 精彩内容`;
+      
+      const tab18 = document.getElementById('tab-12-18');
+      const tab19 = document.getElementById('tab-12-19');
+      const content18 = document.getElementById('agenda-12-18');
+      const content19 = document.getElementById('agenda-12-19');
+
+      const active = ['bg-brand-neon/10', 'text-brand-neon', 'border-brand-neon/50'];
+      const inactive = ['bg-white/5', 'text-white/50', 'border-transparent'];
+
+      if (date === '12/18') {
+        tab18.classList.add(...active); tab18.classList.remove(...inactive);
+        tab19.classList.add(...inactive); tab19.classList.remove(...active);
+        content18.classList.remove('hidden'); content19.classList.add('hidden');
+      } else {
+        tab19.classList.add(...active); tab19.classList.remove(...inactive);
+        tab18.classList.add(...inactive); tab18.classList.remove(...active);
+        content19.classList.remove('hidden'); content18.classList.add('hidden');
+      }
+    };
+
+    // 滚动动画监听
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    setTimeout(() => {
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    }, 100);
+
+  </script>
+</body>
+</html>
